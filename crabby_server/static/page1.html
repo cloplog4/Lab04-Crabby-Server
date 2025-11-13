@@ -6,17 +6,24 @@
 </head>
 <body>
     <h1>Oops, still not working.</h1>
-    <p>Looks like that didn’t fix it either.</p>
+
+    <p><strong>Received GET parameter:</strong> <span id="msg"></span></p>
 
     <button id="resolveButton">click here to resolve</button>
 
     <script>
+        
+        const params = new URLSearchParams(window.location.search);
+        const message = params.get("error") || "No GET parameter provided.";
+        document.getElementById("msg").textContent = message;
+
+        
         document.getElementById("resolveButton").addEventListener("click", function () {
             alert("wow you really are persistent aren't you");
         });
     </script>
 
-    <p><a href="/">Back to the fake 404</a></p>
+    <p><a href="/">Back to fake 404</a></p>
 </body>
 </html>
 
